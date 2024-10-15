@@ -1,0 +1,50 @@
+name: Build, Test, and Publish
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build the Action
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Call JavaScript Action from js-action repo
+        id: hello
+        uses: raghu1211/js-action@v1.1
+        with:
+          who-to-greet: 'Triggered from js-action-new repo'
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    name: Test the Action
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run Tests
+        run: |
+          echo "Testing the action..."
+          # Add custom test commands here if you have any scripts to test the output
+
+  publish:
+    runs-on: ubuntu-latest
+    needs: test
+    if: github.ref == 'refs/heads/main'
+    name: Publish the Action
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
+
+      - name: Publish to GitHub Marketplace
+        run: echo "Deploy to GitHub Marketplace"
