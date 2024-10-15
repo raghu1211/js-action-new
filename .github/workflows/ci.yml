@@ -14,7 +14,7 @@ jobs:
     name: Build the Action
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Hello world action step
         id: hello
@@ -27,7 +27,7 @@ jobs:
     name: Test the Action
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Run Tests
         run: |
@@ -41,7 +41,7 @@ jobs:
     name: Publish the Action
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
 
