@@ -23,6 +23,7 @@ jobs:
           go get .
           go get example.com/octo-examplemodule
           go get example.com/octo-examplemodule@v1.3.4
+        working-directory: raghu1211/js-action-new
       - name: Test with Go
         run: go test -json > TestResults-${{ matrix.go-version }}.json
       - name: Upload Go test results
