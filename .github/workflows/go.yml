@@ -1,21 +1,32 @@
-name: Upload Go test results
+name: Go
 
 on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go-version: [ '1.19', '1.20' ]
+        go-version: ['1.21']
 
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Go ${{ matrix.go-version }}
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ matrix.go-version }}
+      # You can test your matrix by printing the current Go version
+      - name: Display Go version
+        run: go version
+
+  test:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
-          go-version: ${{ matrix.go-version }}
+          go-version: '1.21'
       - name: Test with Go
         run: go test -json > TestResults-${{ matrix.go-version }}.json
       - name: Upload Go test results
@@ -23,3 +34,6 @@ jobs:
         with:
           name: Go-results-${{ matrix.go-version }}
           path: TestResults-${{ matrix.go-version }}.json
+          
+  
+
