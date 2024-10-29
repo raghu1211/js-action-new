@@ -1,4 +1,4 @@
-module github.com/nektos/act
+module github.com/raghu1211/js-action-new
 
 go 1.21
 
