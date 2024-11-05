@@ -32,4 +32,4 @@ jobs:
       run: ls -R
 
     - name: Run the Ant jar target
-      run: ant -noinput -buildfile js-action-new/build.xml jar
+      run: ant -noinput -buildfile js-action-new/src/build.xml jar
