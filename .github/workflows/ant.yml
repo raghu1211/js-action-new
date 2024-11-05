@@ -19,17 +19,17 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Verify build.xml exists
-      run: |
-        if [ ! -f build.xml ]; then
-          echo "build.xml file is missing in the root directory"
-          exit 1
-        else
-          echo "build.xml found"
-        fi
+    # - name: Verify build.xml exists
+    #   run: |
+    #     if [ ! -f build.xml ]; then
+    #       echo "build.xml file is missing in the root directory"
+    #       exit 1
+    #     else
+    #       echo "build.xml found"
+    #     fi
 
     - name: List directory contents for debugging
       run: ls -R
 
     - name: Run the Ant jar target
-      run: ant -noinput -buildfile build.xml jar
+      run: ant -noinput -buildfile js-action-new/build.xml jar
