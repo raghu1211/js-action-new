@@ -14,7 +14,7 @@ jobs:
       uses: committed-consulting/epsilon-ci-action@v2
       with:
     # Relative path to the Ant buildfile
-        build-file: js-action-new/src/build/build.xml
+        build-file: js-action-new/src/build.xml
     # Name of the Ant target to be executed
         # target: # default is main
           
