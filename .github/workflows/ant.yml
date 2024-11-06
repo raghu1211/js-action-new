@@ -13,7 +13,7 @@ jobs:
     - name: Run Ant build in Epsilon CI image
       uses: committed-consulting/epsilon-ci-action@v2
       with:
-        build-file: ./build.xml
+        build-file: build.xml
           
     # - name: Check out repository
     #   uses: actions/checkout@v4
