@@ -44,9 +44,9 @@ jobs:
         uses: raghu1211/js-action@v1.1
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: raghu1211/js-action@v1.1
         with:
-          node-version: '16'
+          node-version: '20'
 
       - name: Authenticate with GitHub Packages
         run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
