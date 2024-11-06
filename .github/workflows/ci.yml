@@ -41,15 +41,20 @@ jobs:
     name: Publish the Action to GitHub Packages
     steps:
       - name: Checkout repository
-        uses: raghu1211/js-action@v1.1
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: raghu1211/js-action@v1.1
+        uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: '16'
 
       - name: Authenticate with GitHub Packages
         run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
+
+      - name: Publish to GitHub Packages
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish to GitHub Packages
         run: npm publish
