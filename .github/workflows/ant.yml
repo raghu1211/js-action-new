@@ -10,14 +10,22 @@ jobs:
   build-test:
     runs-on: ubuntu-latest
     steps:
-    - name: Check out repository
-      uses: actions/checkout@v4
-
-    - name: Set up Java
-      uses: actions/setup-java@v4
+    - name: Run Ant build in Epsilon CI image
+      uses: committed-consulting/epsilon-ci-action@v2
       with:
-        java-version: '17'
-        distribution: 'temurin'
+    # Relative path to the Ant buildfile
+        build-file: js-action-new/src/build/build.xml
+    # Name of the Ant target to be executed
+        # target: # default is main
+          
+    # - name: Check out repository
+    #   uses: actions/checkout@v4
+
+    # - name: Set up Java
+    #   uses: actions/setup-java@v4
+    #   with:
+    #     java-version: '17'
+    #     distribution: 'temurin'
 
     # - name: Verify build.xml exists
     #   run: |
@@ -28,8 +36,8 @@ jobs:
     #       echo "build.xml found"
     #     fi
 
-    - name: List directory contents for debugging
-      run: ls -R
+    # - name: List directory contents for debugging
+    #   run: ls -R
 
-    - name: Run the Ant jar target
-      run: ant -noinput -buildfile js-action-new/src/build/build.xml jar
+    # - name: Run the Ant jar target
+    #   run: ant -noinput -buildfile js-action-new/src/build/build.xml jar
