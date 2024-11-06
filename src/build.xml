@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <project name="JavaProject" basedir="." default="compile">
     <target name="init">
-        <mkdir dir="build"/>
+        <mkdir dir="src"/>
     </target>
 
     <target name="compile" depends="init">
-        <javac srcdir="src" destdir="build"/>
+        <javac srcdir="src" destdir="src"/>
     </target>
 
     <target name="jar" depends="compile">
-        <jar destfile="build/project.jar" basedir="build"/>
+        <jar destfile="src/project.jar" basedir="src"/>
     </target>
 </project>
