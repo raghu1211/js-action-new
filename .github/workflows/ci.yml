@@ -41,7 +41,7 @@ jobs:
     name: Publish the Action to GitHub Packages
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: raghu1211/js-action@v1.1
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
