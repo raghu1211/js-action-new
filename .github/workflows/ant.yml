@@ -13,10 +13,7 @@ jobs:
     - name: Run Ant build in Epsilon CI image
       uses: committed-consulting/epsilon-ci-action@v2
       with:
-    # Relative path to the Ant buildfile
-        build-file: js-action-new/src/build.xml
-    # Name of the Ant target to be executed
-        # target: # default is main
+        build-file: ./build.xml
           
     # - name: Check out repository
     #   uses: actions/checkout@v4
